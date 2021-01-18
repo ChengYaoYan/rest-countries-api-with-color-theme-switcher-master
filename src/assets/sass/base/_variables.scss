@@ -1,0 +1,28 @@
+/*
+=============== 
+Fonts
+===============
+*/
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+/*
+=============== 
+Variables
+===============
+*/
+/* colors */
+$dark-blue: hsl(209, 23%, 22%);
+$very-dark-blue-dark: hsl(207, 26%, 17%);
+$very-dark-blue-light: hsl(200, 15%, 8%);
+$dark-gray: hsl(0, 0%, 52%);
+$very-light-gray: hsl(0, 0%, 98%);
+$white: hsl(0, 0, 100%);
+
+$ff-primary: 'Nunito Sans', sans-serif;
+$transition: all 0.3s linear;
+$spacing: 0.1rem;
+$radius: 0.5rem;
+$light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+$dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+$max-width: 1170px;
+$fixed-width: 620px;
