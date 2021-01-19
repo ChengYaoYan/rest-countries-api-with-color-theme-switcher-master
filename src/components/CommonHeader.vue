@@ -7,7 +7,7 @@
         </div>
       </el-col>
       <el-col :span="8">
-        <div class="toggle-theme">
+        <div class="toggle-theme-container">
           <span class="toggle-theme-icon" v-if="true"><img src="../assets/icons/moon-regular.svg" alt="logo"/></span>
           <span v-else><img src="../assets/icons/moon-solid.svg" alt="logo"/></span>
           Dark Mode
@@ -21,7 +21,7 @@
 .header-title {
   font-weight: 800;
 }
-.toggle-theme {
+.toggle-theme-container {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -33,6 +33,16 @@
     width: 0.9rem;
     height: 0.9rem;
     margin-right: 0.3rem;
+  }
+}
+@media screen and (min-width: 800px) {
+  .toggle-theme-container {
+    font-size: 1.2rem;
+
+    .toggle-theme-icon {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
   }
 }
 </style>

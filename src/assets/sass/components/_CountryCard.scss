@@ -1,0 +1,19 @@
+.card {
+  width: 14rem;
+  margin: 0 auto 2rem;
+}
+.information-container {
+  padding: 1.5rem 1.3rem 2rem;
+}
+@media screen and (min-width: 578px) {
+  .card {
+    width: 15rem;
+    margin: 0;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .card {
+    width: 14rem;
+    margin: 0;
+  }
+}
