@@ -3,7 +3,7 @@
     <el-card :body-style="{ padding: '0px' }" shadow="hover">
       <img class="flag-image"
            :src="country.flag" alt="flag"/>
-      <div class="information-container">
+      <div class="card-information-container">
         <h2>{{ country.nativeName }}</h2>
         <div>
           <p><strong class="strong">Population:</strong> {{ formatPopulation(country.population) }}</p>
@@ -40,7 +40,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .flag-image {
   width: 100%;
   height: 10rem;

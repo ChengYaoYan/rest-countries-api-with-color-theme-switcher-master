@@ -19,9 +19,14 @@ img:not(.logo) {
 img {
   display: block;
 }
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
 h1,
 h2 {
-  text-transform: capitalize;
   line-height: 1.5;
   margin-bottom: 0.75rem;
   font-family: $ff-primary;

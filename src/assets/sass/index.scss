@@ -3,9 +3,11 @@
 // base
 @import "./base/variables";
 @import "./base/basic";
+@import "./base/class";
 
 // components
 @import "./components/CommonHeader";
 @import "./components/Countries";
 @import "./components/CountryCard";
+@import "./components/Detail";
 

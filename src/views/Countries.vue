@@ -21,9 +21,12 @@
         </el-option>
       </el-select>
     </div>
+
     <div class="card-container">
       <template v-for="(country, id) in (filter === false ? countryInformation : filterCountryByRegion(region))">
-        <CountryCard :country="country" :key="id"/>
+        <router-link :to="`/detail/${country.nativeName}`" :key="id">
+          <CountryCard :country="country"/>
+        </router-link>
       </template>
     </div>
   </div>
@@ -41,6 +44,8 @@ export default {
     return {
       countriesOption: [],
       country: "",
+      filter: false,
+      region: "",
       timeout: null,
       options: [
         {
@@ -63,9 +68,7 @@ export default {
           value: "item 5",
           region: "Oceania"
         }
-      ],
-      filter: false,
-      region: ""
+      ]
     };
   },
   computed: {
