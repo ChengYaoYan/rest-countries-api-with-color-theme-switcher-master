@@ -1,5 +1,5 @@
 export default {
     filterCountryByRegion: (state) => (region) => {
-        return state.countryInformation.find(country => country.region === region);
+        return state.countryInformation.filter(country => country.region === region);
     }
 }

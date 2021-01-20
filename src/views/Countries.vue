@@ -2,35 +2,35 @@
   <div class="content-center-container">
     <div class="search-container">
       <el-autocomplete
-          v-model="state"
+          v-model="country"
           :fetch-suggestions="querySearchAsync"
           placeholder="Search for a country..."
           prefix-icon="el-icon-search"
           @select="handleSelect"
-          @change="fetchCountryInformation(state)"
+          @change="fetchCountryInformation(country)"
           class="search-box"
       ></el-autocomplete>
-      <el-select class="select-box" v-model="value" filterable placeholder="Filter by Region"
-                 filter-method="filterByRegion(value)">
+      <el-select class="select-box" v-model="region" clearable placeholder="Filter by Region"
+                 @change="filter = true" @clear="filter = false">
         <el-option
             v-for="item in options"
             :key="item.value"
             :label="item.region"
-            :value="item.value"
+            :value="item.region"
         >
         </el-option>
       </el-select>
     </div>
     <div class="card-container">
-        <template v-for="(country, id) in countryInformation">
-          <CountryCard v-if="filter === false" :country="country" :key="id"/>
-        </template>
+      <template v-for="(country, id) in (filter === false ? countryInformation : filterCountryByRegion(region))">
+        <CountryCard :country="country" :key="id"/>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
-import {mapState, mapActions} from "vuex";
+import {mapState, mapGetters, mapActions} from "vuex";
 import CountryCard from "@/components/CountryCard";
 
 export default {
@@ -39,9 +39,8 @@ export default {
   },
   data() {
     return {
-      countries: [],
-      filterCountry: [],
-      state: "",
+      countriesOption: [],
+      country: "",
       timeout: null,
       options: [
         {
@@ -65,12 +64,13 @@ export default {
           region: "Oceania"
         }
       ],
-      value: "",
-      filter: false
+      filter: false,
+      region: ""
     };
   },
   computed: {
     ...mapState(["countryInformation"]),
+    ...mapGetters(["filterCountryByRegion"])
   },
   methods: {
     ...mapActions(["fetchCountryInformation"]),
@@ -87,8 +87,8 @@ export default {
       ]
     },
     querySearchAsync(queryString, cb) {
-      var countries = this.countries;
-      var results = queryString ? countries.filter(this.createStateFilter(queryString)) : countries;
+      var countriesOption = this.countriesOption;
+      var results = queryString ? countriesOption.filter(this.createStateFilter(queryString)) : countriesOption;
 
       clearTimeout(this.timeout);
       this.timeout = setTimeout(() => {
@@ -101,19 +101,12 @@ export default {
       };
     },
     handleSelect(item) {
-      this.filter = true;
+      this.filter = false;
       this.fetchCountryInformation(item.value);
     },
-    filterByRegion(region) {
-      this.filter = true;
-      this.filterCountry = this.$store.getters.filterCountryByRegion(region);
-    }
   },
   mounted() {
-    this.countries = this.loadAll();
+    this.countriesOption = this.loadAll();
   }
 };
 </script>
-
-<style lang="scss">
-</style>

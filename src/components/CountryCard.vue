@@ -34,7 +34,6 @@ export default {
         chunk = population[i] + chunk;
       }
       formattedPopulation = chunk + formattedPopulation;
-      console.log(formattedPopulation);
       return formattedPopulation;
     }
   }
