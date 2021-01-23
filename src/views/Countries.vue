@@ -54,7 +54,7 @@ export default {
         },
         {
           value: "item 2",
-          region: "America"
+          region: "Americas"
         },
         {
           value: "item 3",
@@ -113,3 +113,4 @@ export default {
   }
 };
 </script>
+

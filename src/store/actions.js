@@ -39,5 +39,8 @@ export default {
             .catch(function (error) {
                 console.log(error);
             })
+    },
+    changeThemeMode: ({commit}, modeCode) => {
+        commit("updateThemeMode", modeCode)
     }
 }

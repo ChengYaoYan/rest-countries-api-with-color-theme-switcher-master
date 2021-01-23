@@ -1,6 +1,6 @@
 <template>
   <div class="content-center-container">
-    <el-button plain @click="$router.go(-1)">
+    <el-button @click="$router.go(-1)">
       <span class="arrow">
         &#129040;
       </span>

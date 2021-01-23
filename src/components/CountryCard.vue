@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <el-card :body-style="{ padding: '0px' }" shadow="hover">
+    <el-card class="element-background" :body-style="{ padding: '0px', border: 'none'}" shadow="hover">
       <img class="flag-image"
            :src="country.flag" alt="flag"/>
       <div class="card-information-container">
